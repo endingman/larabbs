@@ -12,4 +12,13 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .sass('resources/assets/sass/app.scss', 'public/css').version();
+
+
+mix.browserSync({
+    proxy: 'http://larabbs.test:8000',
+    files: ['app/**/*', 'public/**/*', 'resources/views/**/*'],
+    port: 8090,
+    notify: false, //刷新是否提示
+    open: false //是否自动打开页面
+});
