@@ -14,3 +14,9 @@ function route_class()
     /**str_replace() 函数以其他字符替换字符串中的一些字符（区分大小写）**/
     return str_replace('.', '-', Route::currentRouteName());
 }
+
+function make_excerpt($value = '', $length = 200)
+{
+    $excerpt = trim(preg_replace('/\r\n|\r|\n+/', ' ', strip_tags($value)));
+    return str_limit($excerpt, $length);
+}
