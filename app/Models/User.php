@@ -9,6 +9,7 @@ use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
+
     use Notifiable {
         notify as laravelNotify;
     }
@@ -36,9 +37,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'introduction', 'avatar',
+        'name', 'phone', 'email', 'password', 'introduction', 'avatar',
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
