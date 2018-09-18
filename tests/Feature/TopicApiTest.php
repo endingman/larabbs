@@ -91,6 +91,9 @@ class TopicApiTest extends TestCase
             ->assertJsonFragment($assertData);
     }
 
+    /**testShowTopic 先创建一个话题，然后访问 话题详情 接口，断言响应状态码为 200 以及响应数据与刚才创建的话题数据一致。
+
+    testIndexTopic 直接访问 话题列表 接口，断言响应状态码为 200，断言响应数据结构中有 data 和 meta。**/
     public function testIndexTopic()
     {
         $response = $this->json('GET', '/api/topics');
