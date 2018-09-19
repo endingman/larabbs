@@ -20,12 +20,16 @@ class PassportDingoProvider extends Authorization
 
     public function authenticate(Request $request, Route $route)
     {
-        if (!$user = $this->auth->user()) {
-            throw new UnauthorizedHttpException(
-                get_class($this),
-                'Unable to authenticate with invalid API key and token.'
-            );
+        if (!$user = \Auth::user()) {
+            throw new UnauthorizedHttpException(get_class($this), 'Unable to authenticate with invalid API key and token.');
         }
+
+        // if (!$user = $this->auth->user()) {
+        //     throw new UnauthorizedHttpException(
+        //         get_class($this),
+        //         'Unable to authenticate with invalid API key and token.'
+        //     );
+        // }
 
         return $user;
     }

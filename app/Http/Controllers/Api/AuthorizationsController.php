@@ -9,6 +9,7 @@ use Auth;
 use League\OAuth2\Server\AuthorizationServer;
 use League\OAuth2\Server\Exception\OAuthServerException;
 use Psr\Http\Message\ServerRequestInterface;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 use Zend\Diactoros\Response as Psr7Response;
 
 class AuthorizationsController extends Controller
@@ -95,7 +96,12 @@ class AuthorizationsController extends Controller
 
     public function destroy()
     {
+        if (!\Auth::check()) {
+            throw new UnauthorizedHttpException(get_class($this), 'Unable to authenticate with invalid API key and token.');
+        }
+
         $this->user()->token()->revoke();
+
         return $this->response->noContent();
     }
 }
