@@ -5,15 +5,24 @@ namespace App\Models;
 use Auth;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Tymon\JWTAuth\Contracts\JWTSubject;
 
-class User extends Authenticatable
+class User extends Authenticatable implements JWTSubject
 {
+
     use Notifiable {
         notify as laravelNotify;
     }
 
     use HasRoles;
+
+    use HasApiTokens;
+
+    use Traits\ActiveUserHelper;
+
+    use Traits\LastActivedAtHelper;
 
     function notify($instance)
     {
@@ -32,9 +41,9 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'introduction', 'avatar',
+        'name', 'phone', 'email', 'password', 'introduction', 'avatar',
+        'weixin_openid', 'weixin_unionid', 'registration_id',
     ];
-
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -89,5 +98,26 @@ class User extends Authenticatable
         }
 
         $this->attributes['avatar'] = $path;
+    }
+
+    // Rest omitted for brevity
+
+    function getJWTIdentifier()
+    {
+        return $this->getKey();
+    }
+
+    function getJWTCustomClaims()
+    {
+        return [];
+    }
+
+    function findForPassport($username)
+    {
+        filter_var($username, FILTER_VALIDATE_EMAIL) ?
+        $credentials['email'] = $username :
+        $credentials['phone'] = $username;
+
+        return self::where($credentials)->first();
     }
 }
