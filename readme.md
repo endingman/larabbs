@@ -62,7 +62,11 @@ Memcached 1.4+
 克隆 larabbs 源代码到本地：
 
 git clone git@github.com:endingman/larabbs.git
+
+
 配置本地的 Homestead 环境
+
+
 1). 运行以下命令编辑 Homestead.yaml 文件：
 
 homestead edit 
@@ -73,14 +77,18 @@ folders: - map: ~/my-path/larabbs/ # 你本地的项目目录地址 to: /home/va
 
 sites: - map: larabbs.test to: /home/vagrant/larabbs/public
 
-databases: - larabbs 3). 应用修改
+databases: - larabbs 
+
+3). 应用修改
 
 修改完成后保存，然后执行以下命令应用配置信息修改：
 
 homestead provision 随后请运行 homestead reload 进行重启。
 
 安装扩展包依赖
-composer install 4. 生成配置文件
+composer install 
+
+4). 生成配置文件
 
 cp .env.example .env 你可以根据情况修改 .env 文件里的内容，如数据库连接、缓存、邮件设置等。
 
