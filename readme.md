@@ -154,7 +154,9 @@ laravel/horizon	队列监控	队列监控命令与页面控制台 /horizon 自�
 
 命令行名字	说明	Cron	代码调用 
 
-larabbs:calculate-active-user	生成活跃用户	一小时运行一次	无 larabbs:sync-user-actived-at	从 Redis 中同步最后登录时间到数据库中	每天早上 0 点准时	无 
+larabbs:calculate-active-user	生成活跃用户	一小时运行一次	无 
+
+larabbs:sync-user-actived-at	从 Redis 中同步最后登录时间到数据库中	每天早上 0 点准时	无 
 
 队列清单 名称	说明	调用时机 
 
