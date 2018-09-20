@@ -131,149 +131,105 @@ $ php artisan migrate --seed
 7. 配置 hosts 文件
 
 echo "192.168.10.10   phphub.app" | sudo tee -a /etc/hosts
+
+
 前端框架安装
 
 1). 安装 node.js
-​
-98
-在 Homestead 的网站根目录下运行以下命令
-99
-​
-100
-$ php artisan migrate --seed 初始的用户角色权限已使用数据迁移生成。
-101
-​
-102
-配置 hosts 文件
-103
-echo "192.168.10.10 phphub.app" | sudo tee -a /etc/hosts 前端框架安装
-104
-​
-105
-1). 安装 node.js
-106
-​
-107
+
 直接去官网 https://nodejs.org/en/ 下载安装最新版本。
-108
-​
-109
+
+
 2). 安装 Yarn
-110
-​
-111
+
+
 请按照最新版本的 Yarn —— http://yarnpkg.cn/zh-Hans/docs/install
-112
-​
-113
+
+
 3). 安装 Laravel Mix
-114
-​
-115
+
+
 yarn install 
-116
-​
-117
+
+
 4). 编译前端内容
-118
-​
-119
+
+
 // 运行所有 Mix 任务... npm run dev
-120
-​
-121
+
+
 // 运行所有 Mix 任务并缩小输出.. npm run production 5). 监控修改并自动编译
-122
-​
-123
+
+
 npm run watch
-124
-​
-125
+
+
 // 在某些环境中，当文件更改时，Webpack 不会更新。如果系统出现这种情况，请考虑使用 watch-poll 命令： npm run watch-poll 链接入口
-126
-​
-127
+
+
 首页地址：http://larabbs.test/ 管理后台：http://larabbs.test/admin 管理员账号密码如下:
-128
-​
-129
-username:631925002@qq.com password: password 至此, 安装完成 ^_^。
-130
-​
-131
+
+
+username:631925002@qq.com 
+
+password: password 
+
+至此, 安装完成 ^_^。
+
+
 扩展包使用情况
-132
-​
-133
+
+
 扩展包 一句话描述   本项目应用场景 
-134
-​
-135
+
+
 Intervention/image  图片处理功能库 用于图片裁切 
-136
-​
-137
+
+
 guzzlehttp/guzzle   HTTP 请求套件   请求百度翻译 API 
-138
-​
-139
+
+
 predis/predis   Redis 官方首推的 PHP 客户端开发包  缓存驱动 Redis 基础扩展包 
-140
-​
-141
+
+
 barryvdh/laravel-debugbar   页面调试工具栏 (对 phpdebugbar 的封装) 开发环境中的 DEBUG 
-142
-​
-143
+
+
 spatie/laravel-permission   角色权限管理  角色和权限控制 
 144
 ​
 145
 mewebstudio/Purifier    用户提交的 Html 白名单过滤    帖子内容的 Html 安全过滤，防止 XSS 攻击 
-146
-​
-147
+
+
 hieu-le/active  选中状态    顶部导航栏选中状态 
-148
-​
-149
+
+
 summerblue/administrator    管理后台    模型管理后台、配置信息管理后台 
-150
-​
-151
+
+
 viacreative/sudo-su 用户切换    开发环境中快速切换登录账号 
-152
-​
-153
+
+
 laravel/horizon 队列监控    队列监控命令与页面控制台 /horizon 自定义 Artisan 命令
-154
-​
-155
+
+
 命令行名字   说明  Cron    代码调用 
-156
-​
-157
+
+
 larabbs:calculate-active-user   生成活跃用户  一小时运行一次 无 
-158
-​
-159
+
+
 larabbs:sync-user-actived-at    从 Redis 中同步最后登录时间到数据库中  每天早上 0 点准时  无 
-160
-​
-161
+
+
 队列清单 名称 说明  调用时机 
-162
-​
-163
+
+
 TranslateSlug.php   将话题标题翻译为 Slug   
-164
-​
-165
+
+
 TopicObserver 事件 saved() 
-166
-​
-167
+
+
 TopicReplied.php    通知作者话题有新回复  话题被评论以后
-168
-​
