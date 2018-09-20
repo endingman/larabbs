@@ -109,6 +109,8 @@ homestead provision
 3. 安装扩展包依赖
 
 composer install
+
+
 4. 生成配置文件
 
 cp .env.example .env
@@ -117,6 +119,8 @@ cp .env.example .env
 5. 生成秘钥
 
 php artisan key:generate
+
+
 6. 生成数据表及生成测试数据
 
 在 Homestead 的网站根目录下运行以下命令
