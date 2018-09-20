@@ -51,6 +51,8 @@ Memcached 1.4+
 1). 运行以下命令编辑 Homestead.yaml 文件：
 
 homestead edit
+
+
 2). 加入对应修改，如下所示：
 
 folders:
