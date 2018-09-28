@@ -40,6 +40,7 @@ class User extends Authenticatable implements JWTSubject
     protected $fillable = [
         'name', 'phone', 'email', 'password', 'introduction', 'avatar',
         'weixin_openid', 'weixin_unionid', 'registration_id',
+        'weixin_session_key', 'weapp_openid',
     ];
     /**
      * The attributes that should be hidden for arrays.
