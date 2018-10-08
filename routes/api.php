@@ -91,6 +91,8 @@ $api->version('v1', [
 
             //编辑用户
             $api->patch('user', 'UsersController@update')
+                ->name('api.user.patch');
+            $api->put('user', 'UsersController@update')
                 ->name('api.user.update');
             // 图片资源
             $api->post('images', 'ImagesController@store')
