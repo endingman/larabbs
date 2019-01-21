@@ -3,7 +3,10 @@
 namespace App\Models\Traits;
 
 use Carbon\Carbon;
-use Redis;
+// use Redis;
+
+// docker运行更改不修改容器情况下
+use Illuminate\Support\Facades\Redis;
 
 trait LastActivedAtHelper
 {
