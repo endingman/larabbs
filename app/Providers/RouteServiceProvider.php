@@ -2,8 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -23,9 +23,24 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
-
         parent::boot();
+
+        // // 先设置好控制器命名空间
+        // $this->setRootControllerNamespace();
+
+        // // 1. 如有缓存直接加载
+        // if ($this->routesAreCached()) {
+        //     $this->loadCachedRoutes();
+
+        //     // 2. 否则解析路由
+        // } else {
+        //     $this->loadRoutes();
+
+        //     $this->app->booted(function () {
+        //         $this->app['router']->getRoutes()->refreshNameLookups();
+        //         $this->app['router']->getRoutes()->refreshActionLookups();
+        //     });
+        // }
     }
 
     /**
@@ -52,8 +67,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapWebRoutes()
     {
         Route::middleware('web')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/web.php'));
+            ->namespace($this->namespace)
+            ->group(base_path('routes/web.php'));
     }
 
     /**
@@ -66,8 +81,8 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapApiRoutes()
     {
         Route::prefix('api')
-             ->middleware('api')
-             ->namespace($this->namespace)
-             ->group(base_path('routes/api.php'));
+            ->middleware('api')
+            ->namespace($this->namespace)
+            ->group(base_path('routes/api.php'));
     }
 }
