@@ -19,9 +19,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
 
 
 mix.browserSync({
-    proxy: 'http://larabbs.test:8000',
+    proxy: 'larabbs.test',
     files: ['app/**/*', 'public/**/*', 'resources/views/**/*'],
-    port: 8090,
+    port: 8900,
     notify: false, //刷新是否提示
     open: false //是否自动打开页面
 });

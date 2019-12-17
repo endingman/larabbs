@@ -6,6 +6,12 @@
  */
 
 require('./bootstrap');
+require('jquery-pjax');
+
+$(document).ready(function () {
+  // 初始化 Pjax，应用到所有站内链接中，并替换 body
+  $(document).pjax('a', 'body');
+});
 
 window.Vue = require('vue');
 
